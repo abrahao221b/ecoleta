@@ -1,0 +1,121 @@
+/* Box Model */
+
+#page-home {
+    
+    height: 100vh;
+    /*Modificar depois quando conseguir o design do app*/
+    background: url('../assets/home-background.svg') no-repeat;
+    background-position: 35vw bottom;
+    -webkit-font-smoothing: antialiased;
+}
+
+#page-home .content {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    margin: auto;
+    width: 90%;
+}
+
+#page-home header {
+    margin-top: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#page-home header a {
+    display: flex;
+    color:  var(--title-color);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+/*É como se tivesse navegando por isso page-home header a span*/
+#page-home header a span {
+    margin-right: 9px;
+    display: flex;
+    background-image: url('../assets/log-in.svg');
+    width: 20px;
+    height: 20px;
+}
+
+#page-home main {
+    max-width: 560px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#page-home main h1 {
+    font-size: 54px;
+    margin-top: 0;
+    /*color: var(--title-color); seria uma subescrever pois já temos um agupamento dos h"s" ex: h1, h2*/
+}
+
+#page-home main p {
+    font-size: 24px;
+    line-height: 38px;
+    margin-top: 24px;
+    color: lightgreen;
+    -webkit-font-smoothing: antialiased;
+}
+
+#page-home main a {
+    width: 100%;
+
+    max-width: 360px;
+
+    height: 72px;
+
+    border-radius: 10px 25px;
+
+    display: flex;
+
+    align-items: center;
+
+    margin-top: 40px;
+
+    background-color: var(--primary-color);
+    
+    transition: 400ms;
+
+    color: white;
+}
+
+#page-home main a:hover {
+    background-color: #2fb86e;
+}
+
+#page-home main a span {
+    width: 72px;
+    height: 72px;
+
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 24px ;
+
+    background-color: rgba(0, 0, 0, 0.08);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/*Dá para colocar o novo elemento dentro de uma caixa 
+  para interagir no caso aqui foi para colocar uma imagem,
+  a qual é a imagem de pesquisa
+*/
+#page-home main a span::after {
+    content: "";
+    background: url('../assets/search.svg');
+
+    width: 20px;
+    height: 20px;
+}
+
+#page-home main a strong {
+    flex: 1;
+    text-align: center;
+    -webkit-font-smoothing: antialiased;
+}

@@ -1,0 +1,135 @@
+{% extends "layout.html" %}
+
+{% set pageId = "page-create-point" %}
+
+{% block tilte %}
+    <title>Create a collect point</title>
+{% endblock tilte %}
+
+{% block styles %}
+    <link rel="stylesheet" href="/styles/create-point.css">
+    <link rel="stylesheet" href="/styles/modal.css">
+{% endblock styles %}
+
+{% block content %}
+    {% include "partials/page-header.html" %}
+
+    <form action="/savepoint" method="POST">
+
+        <h1>Name of the collect point</h1>
+
+        <fieldset>
+            <legend>
+                <h2>Entity data</h2>
+            </legend>
+
+            <div class="field-group">
+
+                <div class="field">
+                    <label for="name">Entity Name</label>
+                    <input type="text" name="name" required="required">
+                </div>
+                <div class="field">
+                    <label for="name">Entity Image</label>
+                    <input type="url" name="image" placeholder="http://" required="required">
+                </div>
+
+            </div>
+
+            <div class="field-group">
+                <div class="field">
+                    <label for="address">Address</label>
+                    <input type="text" name="address" required="required">
+                </div>
+
+                <div class="field">
+                    <label for="address2">Address Number/Complement</label>
+                    <input type="text" name="address2" required="required">
+                </div>
+
+            </div>
+
+            <div class="field-group">
+                <!-- Primeiro se escolheu o estado, pois vamos colocar uma lista de estados depois olhar as cidade possíveis-->
+                <div class="field">
+                    <label for="state">State</label>
+                    <select name="uf" required="required">
+                        <option value="">Select the State</option>
+                    </select>
+
+                    <input type="hidden" name="state">
+                </div>
+
+                <div class="field">
+                    <label for="city">City</label>
+                    <select name="city" disabled="disabled" required="required">
+                        <option value="">Select the City</option>
+                    </select>
+
+                </div>
+            </div>
+
+        </fieldset>
+
+        <fieldset>
+            <legend>
+                <h2>Recyclable Items</h2>
+                <span>!!Sellect the Recyclable Items Below!!<br/>
+                    !!Before you Go!!</span>
+            </legend>
+
+            <div class="items-grid">
+                <li data-id="Lamps">
+                    <img src="assets/lampadas.svg" alt="Lamps">
+                    <span>Lamps</span>
+                </li>
+
+                <li data-id="Battery">
+                    <img src="assets/baterias.svg" alt="Battery">
+                    <span>Battery</span>
+                </li>
+
+                <li data-id="Cardboard and Paper">
+                    <img src="assets/papeis-papelao.svg" alt="Cardboard Paper">
+                    <span>Cardboard Paper</span>
+                </li>
+
+                <li data-id="Electronic Residuos">
+                    <img src="assets/eletronicos.svg" alt="Electronic Residuos">
+                    <span>Electronic Residuos</span>
+                </li>
+
+                <li data-id="Organic Residuos">
+                    <img src="assets/organicos.svg" alt="Organic Residuos">
+                    <span>Organic Residuos</span>
+                </li>
+
+                <li data-id="Kitchen Oil">
+                    <img src="assets/oleo.svg" alt="Kitchen Oil">
+                    <span>Kitchen Oil</span>
+                </li>
+
+            </div>
+
+            <input type="hidden" name="items">
+
+        </fieldset>
+
+        <button type='submit'>Register a collect point</button>
+    </form>
+
+
+{% endblock content %}
+
+
+{% block modal %}
+
+    {% if saved %}
+        {%include "partials/point-created.html"%}}
+    {% endif %}
+    
+{% endblock modal %}
+
+{% block scripts %}
+    <script src="/scripts/create-point.js"></script>
+{% endblock scripts %}

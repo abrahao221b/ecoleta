@@ -1,0 +1,58 @@
+/*No caso se max-width < 900px aí ele começa a mudar ou menor*/
+@media (max-width: 900px) {
+    #page-home {
+        background-position-x: 70 vw;
+    }
+    
+    #page-home .content {
+        align-items: center;
+        text-align: center;
+    }
+
+    #page-home header a {
+        position: absolute;
+        bottom: 48px;
+        
+
+        left: 20%;
+        transform: translateX(-50%);
+        transform: translateY(50%);
+    
+    }
+
+    #page-home main {
+        align-items: center;
+    }
+    
+    #page-search-results .cards {
+        grid-template-columns: 1fr;
+    }
+
+    #page-search-results .cards {
+        height: 250px;
+    }
+
+    #page-create-point .field-group {
+        flex-direction: column;
+    }
+
+    #page-create-point .field-group .field + .field {
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 1700px) {
+    #page-home {
+        background-position-x: 40vw;
+    }
+}
+
+/* @media(max-width: 375) { 
+    #page-create-point 
+}*/
+
+@media (max-width: 760px) {
+    #page-home {
+        background-position-y: 200px;
+    }
+}

@@ -1,0 +1,224 @@
+#page-create-point {
+    width: 90%;
+    max-width: 1100px;
+    /*Padrão de alinhamento de caixa (pelo lado de fora da caixa) */
+    margin: 0 auto;
+}
+
+#page-create-point header {
+    margin-top: 48px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#page-create-point header a {
+    color: var(--title-color);
+    font-weight: bold;
+
+    display: flex;
+    align-items: center;
+}
+
+#page-create-point header a span {
+    margin-right: 16px;
+    background-image: url('../assets/arrow-left.svg');
+
+    display: flex;
+
+    width: 20px;
+    height: 24px;
+}
+
+form {
+    background-color: white;
+    
+    /*Desse jeito que está o margin ele irá sobrescrever o margin-top
+      ou poderia colocar só o margin: 80px auto que também dá no mesmo
+      o problema só que se ficar com só margin: 80px auto vai ficar com
+      80px em baixo da caixa também, no caso vou optar pela redunção do
+      código e deixar só margin: 80px auto.
+    */
+    margin: 80px auto;
+
+     /*Preenchimeto*/
+    padding: 64px;
+
+    border-radius: 8px;
+
+    max-width: 730px;
+
+}
+
+form h1 {
+    font-size: 36px;
+}
+
+form fieldset {
+    margin-top: 64px;
+
+    border: 0;
+}
+
+form legend {
+    margin-bottom: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+}
+
+form legend h2 {
+    font-size: 24px;
+}
+
+form legend span {
+    color: var(--primary-color);
+
+    font-weight: bold;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    text-align: center;
+}
+
+form .field {
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+
+    margin-bottom: 24px;
+}
+
+form .field-group {
+    display: flex;
+
+}
+
+/* Ao colocar a vírgula o css pega algumas
+   dessas propriedades para o select*/
+form input,
+form select {
+       background-color: #f0f0f5;
+   
+       border: 0;
+       padding: 16px 24px;
+       font-size: 16px;
+       
+       border-radius: 10px;
+   
+   /* outline: none;  poderia se colocar para retirar a linha preta
+      , porém tem-se que mostrar de algum jeito que o usuário está 
+      no campo*/
+}
+   
+form select {
+   /* Isso é porque algumas das propriedades do form select de cima 
+      alguns browsers não aplicam os estilos colocados a cima. Isto é
+      para resetar os comandos que o Browser colocou nos campos indicados
+      pelo estilo colocado.*/
+   /* -webkit-appearance: none; é para o Chrome*/
+   -webkit-appearance: none;
+   /* -moz-appearance: none; é para o mozila*/
+   -moz-appearance: none;
+   
+   appearance: none;
+}
+   
+form label {
+   font-size: 14px;
+   margin-bottom: 8px;
+}
+   
+/* Essa estratégia é para separar os campos de registro que ficaram ligados.*/
+/* Ou seja, um campo field + field que significa um campo field que vinher seguido
+   de outro campo field*/
+/* A junção dos dois caras faz com que a propriedade dentro se aplique aos segundo 
+   field ou cara*/
+form .field-group .field + .field {
+   margin-left: 24px;
+}
+
+form button {
+    width: 260px;
+    height: 56px;
+
+    background-color: var(--primary-color);
+    border-radius: 8px;
+
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+
+    border: 0;
+
+    margin-top: 40px;
+
+    /* Cuidado ao utilizar o transition, pois ele pode analisar tudo que estiver no
+       seu escopo, como no caso só queremos mudar a cor a gente tem que colocar o tipo
+       de transição */
+    transition: background-color 400ms;
+}
+
+form button:hover {
+    background-color: #2fb86e; 
+}
+
+.items-grid {
+    display: grid;
+    /* fr: é de fracional ele vai cortar até ficar três colunas*/
+    grid-template-columns: 1fr 1fr 1fr;
+    /* Propriedade para dar margem exclusiva do grid */
+    gap: 16px;
+}
+
+.items-grid li {
+    background-color: #f5f5f5;
+    list-style: none;
+
+    border: 2px solid #f5f5f5;
+    border-radius: 8px;
+
+    height: 180px;
+
+    padding: 32px 24px 16px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    text-align: center;
+
+    /*Ele faz a mãozinha quando se passa o mouse em cima*/
+    cursor: pointer;
+}
+
+.items-grid li span {
+    margin-top: 12px;
+
+    /* Pra imagem preencher sozinha */
+    flex: 1;
+
+    display: flex;
+    align-items: center;
+
+    color: var(--title-color);
+
+}
+
+/* Nesse caso não pode haaver espaço entre li.selected, pois estaria dando um outro
+   significado, o qual seria que tem um elemento dentro do li que é o selected, e no caso
+   a gente está querendo dizer que o selected está no li, mas não é seu elemento */
+.items-grid li.selected {
+    background: #e4d2f5;
+    border: 2px solid #9970eb;
+}
+
+.items-grid li img,
+.items-grid li span {
+    pointer-events: none;
+}
